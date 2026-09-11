@@ -60,14 +60,17 @@ Object.assign(float.style,{position:'fixed',right:'18px',bottom:'18px',zIndex:'5
 document.body.appendChild(float);
 window.addEventListener('scroll',()=>{float.style.display=window.scrollY>650?'inline-flex':'none';},{passive:true});
 
-/* V3: form submission guard */
+/* Formspree connection */
 const form=document.querySelector('#leadForm');
-if(form){form.addEventListener('submit',e=>{
-  if(form.action.includes('YOUR_FORMSPREE_ID')){
-    e.preventDefault();
-    alert('V3 已完成，但表單尚未連接收件系統。請把 index.html 的 YOUR_FORMSPREE_ID 換成實際 Formspree ID，或改接 Google Apps Script / CRM。');
-    return;
-  }
-});}
+if(form){
+  form.action='https://formspree.io/f/xnpqwlad';
+  form.addEventListener('submit',e=>{
+    if(form.action.includes('YOUR_FORMSPREE_ID')){
+      e.preventDefault();
+      alert('表單尚未連接收件系統。');
+      return;
+    }
+  });
+}
 
 recommend();
