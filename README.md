@@ -1,36 +1,12 @@
-# Google Workspace × 谷谷資訊｜V2 正式商業版
+# 谷谷資訊｜新版官網
 
-這是一個可直接部署到 GitHub Pages 的靜態商業網站。
+靜態 HTML、CSS、JavaScript，無需安裝套件。以 `python3 -m http.server 8000` 啟動本機預覽，或直接部署此目錄至靜態網站主機。
 
-## 內容
-- Google Workspace 企業導入 Landing Page
-- 痛點導向銷售文案
-- 方案與價格
-- 公司人數互動式方案推薦 / 費用估算
-- 導入流程
-- 需求表單
-- FAQ
-- SEO / Open Graph metadata
-- 手機版 Responsive
+- `index.html` 包含服務介紹、公開聯絡資料與表單。
+- `styles.css` 包含響應式版型、互動效果與減少動態效果偏好支援。
+- `script.js` 處理手機選單、服務預選與 Formspree 送出結果。
+- `assets/` 包含桌面與手機版 WebP 首圖、網站標誌。
 
-## 上線前必改
-1. `index.html` 搜尋 `YOUR_FORMSPREE_ID`
-2. 換成實際 Formspree ID；或改接 Google Apps Script / CRM
-3. 把 footer 的公司資訊、聯絡方式、網址確認一次
-4. 如果有正式 Google Workspace reseller / partner 資格，可再加入對應的官方身分說明；不要把「谷谷資訊」描述成 Google 官方公司。
+諮詢表單沿用 Google Workspace 專頁的 Formspree 端點，以 `source` 欄位辨識新版官網。發布到正式網域前，請確認該端點允許正式網域，並以一筆測試驗證通知信與實際收件匣。預覽期間可透過網站提供的信箱、電話與 LINE 聯絡。
 
-## GitHub Pages
-建立 GitHub repository，把四個檔案放在 root：
-- index.html
-- styles.css
-- script.js
-- README.md
-
-Settings → Pages → Deploy from branch → main / root。
-
-## 價格
-網站目前使用 Google Workspace 官方公開標準月付基準：
-Starter $7 / user / month
-Standard $14 / user / month
-Plus $22 / user / month
-實際價格、促銷與稅金應以上線時 Google 官方頁面及谷谷資訊報價為準。
+此版本供新版官網試閱，可部署於獨立站台或 GitHub Pages。請在確認試閱版與收件後再進行正式網域切換。
