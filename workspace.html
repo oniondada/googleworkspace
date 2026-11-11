@@ -9,6 +9,7 @@
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 <script defer src="script.js"></script>
+<script defer src="workspace.js"></script>
 </head>
 <body id="top">
 <a href="#main" class="skip">跳至主要內容</a>
@@ -16,7 +17,7 @@
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="谷谷資訊首頁"><img src="assets/mark.svg" width="37" height="37" alt=""><span><b>谷谷資訊</b><small>GOODGOOD</small></span></a>
     <button type="button" class="menu" aria-controls="nav-links" aria-expanded="false" hidden>選單 <span aria-hidden="true">☰</span></button>
-    <nav id="nav-links" aria-label="主選單"><a href="index.html#services">服務項目</a><a href="index.html#ai">AI 導入</a><a href="workspace.html" aria-current="page">Google Workspace</a><a href="about.html">關於谷谷</a></nav>
+    <nav id="nav-links" aria-label="主選單"><a href="index.html#services">服務項目</a><a href="workspace.html" aria-current="page">Google Workspace</a><a href="about.html">關於谷谷</a></nav>
     <a class="button nav-cta" href="index.html#contact">預約諮詢 <span aria-hidden="true">↗</span></a>
   </div>
 </header>
@@ -26,7 +27,7 @@
       <p class="kicker">GOOGLE WORKSPACE</p>
       <h1>Google Workspace 採購與導入</h1>
       <p>從方案與授權採購，到企業信箱上線。谷谷資訊依公司人數、既有郵件系統和資料量，協助規劃導入。</p>
-      <div class="actions"><a class="button primary" href="index.html?service=workspace#contact">索取報價 ↗</a><a class="button ghost" href="https://gws.goodgood.tw/">方案試算 ↗</a></div>
+      <div class="actions"><a class="button primary" href="#plans">方案試算 ↓</a><a class="button ghost" href="index.html?service=workspace#contact">索取報價 ↗</a></div>
     </div>
   </section>
   <section class="section wrap">
@@ -35,6 +36,55 @@
       <article class="card"><h3>方案評估與授權採購</h3><p>依使用人數、儲存空間、會議與管理需求，比較適合的 Business 方案並提供報價。</p></article>
       <article class="card"><h3>企業信箱與資料搬遷</h3><p>協助建置公司網域信箱、帳號與群組，並評估從 Microsoft 365 或既有郵件伺服器移轉郵件及檔案。</p></article>
       <article class="card"><h3>權限管理與 Gemini 應用</h3><p>協助設定管理員權限、多因素驗證與檔案共享規則，並依方案和使用情境評估 Gemini 導入方式。</p></article>
+    </div>
+  </section>
+  <section class="section about" id="plans">
+    <div class="wrap">
+      <div class="section-head"><div><p class="kicker">PLAN ESTIMATOR</p><h2>比較方案與試算月費</h2></div><p>輸入預計使用的人數，選擇想評估的版本。試算採年度承諾的美元牌價，換算每月費用。</p></div>
+      <div class="cards plan-cards">
+        <article class="card"><h3>Business Starter</h3><p>每位使用者每月 USD 7</p><ul><li>每位使用者 30 GB 集區儲存</li><li>企業網域信箱</li><li>Gmail 中的 Gemini</li></ul></article>
+        <article class="card"><h3>Business Standard</h3><p>每位使用者每月 USD 14</p><ul><li>每位使用者 2 TB 集區儲存</li><li>Meet 會議錄影</li><li>Gmail、Docs、Meet 等服務中的 Gemini</li></ul></article>
+        <article class="card"><h3>Business Plus</h3><p>每位使用者每月 USD 22</p><ul><li>每位使用者 5 TB 集區儲存</li><li>Google Vault 與電子蒐證</li><li>進階管理與安全功能</li></ul></article>
+      </div>
+      <form class="workspace-calc" id="workspace-calculator" action="index.html#contact" method="get">
+        <input type="hidden" name="service" value="workspace">
+        <div>
+          <h3>授權費用試算</h3>
+          <div class="form-grid">
+            <label>使用人數（1–300）<input name="seats" type="number" min="1" max="300" step="1" value="20" required></label>
+            <label>預計採購的方案<select name="plan"><option value="starter">Business Starter</option><option value="standard" selected>Business Standard</option><option value="plus">Business Plus</option></select></label>
+            <label>目前的信箱<select name="mail"><option>尚未使用企業信箱</option><option>Gmail</option><option>Google Workspace</option><option>Microsoft 365</option><option>公司郵件伺服器</option><option>其他</option></select></label>
+            <label>需要資料搬遷嗎？<select name="migration"><option>需要評估</option><option>需要</option><option>不需要</option></select></label>
+          </div>
+        </div>
+        <div class="estimate">
+          <p class="kicker">每月授權費用估算</p>
+          <output id="workspace-total" aria-live="polite">USD 280</output>
+          <p>未含稅、優惠及導入服務費。實際費用依當期報價為準。<a href="https://workspace.google.com/pricing.html">查看 Google 官方方案 ↗</a></p>
+          <div class="actions"><button class="button primary" type="submit">帶入試算結果並詢價 ↗</button><button class="button copy-estimate" id="copy-workspace-estimate" type="button" hidden>複製結果</button></div>
+          <p class="form-status" id="workspace-copy-status" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="section wrap" id="process">
+    <div class="section-head"><h2>Google Workspace 導入流程</h2></div>
+    <ol class="steps workspace-steps">
+      <li><b>01</b><div><h3>盤點現況</h3><p>確認人數、網域、目前的信箱和檔案環境。</p></div></li>
+      <li><b>02</b><div><h3>規劃方案與時程</h3><p>確認授權版本、搬遷範圍、上線窗口與報價。</p></div></li>
+      <li><b>03</b><div><h3>建置帳號與權限</h3><p>設定網域、信箱、群組及管理安全原則。</p></div></li>
+      <li><b>04</b><div><h3>搬遷與驗證</h3><p>依約定範圍搬遷郵件或檔案，驗證收發信與存取權限。</p></div></li>
+      <li><b>05</b><div><h3>交接與教育訓練</h3><p>依導入範圍提供管理交接與使用教學。</p></div></li>
+    </ol>
+  </section>
+  <section class="section about" id="faq">
+    <div class="wrap workspace-faq">
+      <div class="section-head"><h2>常見問題</h2></div>
+      <details><summary>Google Workspace 和一般 Gmail 有什麼差別？</summary><p>企業可使用自己的網域信箱，並集中管理員工帳號、資料共享權限與安全設定。</p></details>
+      <details><summary>可以從 Microsoft 365 或公司郵件伺服器搬過來嗎？</summary><p>可以先評估。可搬遷的資料類型、時程與做法取決於來源系統、資料量及現行設定。</p></details>
+      <details><summary>已經在用 Google Workspace，也可以詢價嗎？</summary><p>可以。請提供現有方案、人數及合約到期日，方便評估後續採購方式。</p></details>
+      <details><summary>試算金額包含搬遷和設定嗎？</summary><p>試算只涵蓋授權費用。谷谷資訊會依使用人數、所選方案、資料量與導入範圍提供報價。</p></details>
+      <a class="button primary" href="index.html?service=workspace#contact">洽詢 Google Workspace ↗</a>
     </div>
   </section>
 </main>
