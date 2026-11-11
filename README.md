@@ -5,7 +5,8 @@
 - `index.html` 包含服務介紹、公開聯絡資料與表單。
 - `styles.css` 包含響應式版型、互動效果與減少動態效果偏好支援。
 - `script.js` 處理手機選單、服務預選與 Formspree 送出結果。
-- `assets/` 包含桌面與手機版 WebP 首圖、網站標誌。
+- `workspace.html` 與 `about.html` 是 Google Workspace 與公司介紹專頁。
+- 首頁幾何動效由 CSS 繪製，`assets/` 保存網站標誌。
 
 諮詢表單沿用 Google Workspace 專頁的 Formspree 端點，以 `source` 欄位辨識新版官網。發布到正式網域前，請確認該端點允許正式網域，並以一筆測試驗證通知信與實際收件匣。預覽期間可透過網站提供的信箱、電話與 LINE 聯絡。
 

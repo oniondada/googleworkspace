@@ -3,7 +3,7 @@ const nav = document.querySelector('#nav-links');
 const form = document.querySelector('#consultation');
 const topic = document.querySelector('#topic');
 const status = document.querySelector('#form-status');
-const submit = form.querySelector('button[type="submit"]');
+const submit = form?.querySelector('button[type="submit"]');
 
 function toggleMenu(open) {
   menu.setAttribute('aria-expanded', String(open));
@@ -23,13 +23,17 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+if (topic && new URLSearchParams(location.search).get('service') === 'workspace') {
+  topic.value = 'Google Workspace 採購與導入';
+}
+
 document.querySelectorAll('[data-topic]').forEach((link) => {
   link.addEventListener('click', () => {
     topic.value = link.dataset.topic;
   });
 });
 
-form.addEventListener('submit', async (event) => {
+form?.addEventListener('submit', async (event) => {
   event.preventDefault();
   submit.disabled = true;
   status.className = 'form-status';
